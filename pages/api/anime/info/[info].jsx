@@ -10,9 +10,6 @@ async function infoAnime(anime) {
 
 
 
-
-
-
 export default async function handler(req, res) {
     const { info } = req.query
     const searchResult = await infoAnime(info)

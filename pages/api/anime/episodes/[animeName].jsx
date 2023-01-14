@@ -10,8 +10,6 @@ async function searchAnimeEpisodes(anime) {
 }
 
 
-
-
 export default async function handler(req, res) {
     const { animeName } = req.query
     const searchResult = await searchAnimeEpisodes(animeName)
