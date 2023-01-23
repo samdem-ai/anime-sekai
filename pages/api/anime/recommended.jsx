@@ -11,5 +11,8 @@ async function recommended() {
 
 export default async function handler(req, res) {
     const searchResult = await recommended()
+    for (const i in searchResult.data) {
+        searchResult.data[i].poster_path = `https://api.animeiat.co/storage/${searchResult.data[i].poster_path}`
+    }
     res.status(200).json(searchResult.data)
 }

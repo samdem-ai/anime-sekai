@@ -12,7 +12,6 @@
     "@next/font": "13.1.2",
     "axios": "^1.2.2",
     "bootstrap": "^5.2.3",
-    "bootstrap-icons": "^1.10.3",
     "eslint": "8.31.0",
     "eslint-config-next": "13.1.2",
     "next": "13.1.2",

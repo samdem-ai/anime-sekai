@@ -1,0 +1,62 @@
+.newest-release::before {
+  content: url("/assets/zenitsu.png");
+  position: absolute;
+  z-index: 0;
+  left: 0;
+  top: -2rem;
+}
+
+.newest-release {
+  position: relative;
+  margin-top: 5rem;
+  padding-bottom: 2rem;
+  border-radius: 20px;
+  background-color: #171e31;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.anime__card {
+  position: relative;
+  height: 25vh;
+  background-size: cover;
+  background-position: center center;
+  border-radius: 24px;
+  display: flex;
+  align-items: flex-end;
+  text-decoration: none;
+}
+
+.newest-release__container {
+  padding: 0 0.6rem;
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: 1fr 1fr;
+}
+
+.anime__title {
+  width: 100%;
+  border-radius: 0 0 24px 24px;
+  padding: 0.3rem 0.5rem 0.5rem 0.5rem;
+  overflow: hidden;
+  max-height: 100px;
+  white-space: normal;
+  text-overflow: ellipsis;
+  margin: 0;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.newest-release__title {
+  color: #cccccc;
+  font-size: 2rem;
+  font-weight: bolder;
+  margin: 2rem;
+}
+
+@media (width>1100px) {
+  .newest-release__container {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}

@@ -1,5 +1,4 @@
-import Image from 'next/image'
-import './style.css'
+import './Popular.css'
 
 
 async function fetchPopularAnime() {
@@ -47,17 +46,19 @@ export default async function Popular() {
     // const l = await fetchAnimeInfo(result)
     if (result) {
         return (
-            <div id="carouselExample" class="carousel slide mt-5" data-bs-ride="carousel">
+            <div id="carouselExample popular" class="carousel slide mt-5" data-bs-ride="carousel">
                 <div class="carousel-inner">
                     {result.map((anime) => (
                         <div key={anime.id} className={result.indexOf(anime) == 0 ? "slider carousel-item active" : "slider carousel-item"} style={{ backgroundImage: `url(${anime.cover})` }}>
                             <div className="slider-container">
-                                <h1 className='slider__title'>{anime.title}</h1>
+                                <div className="title-container">
+                                    <h1 className='slider__title'>{anime.title}</h1>
+                                </div>
                                 {/* <Image className='slider__image' src={`${anime.cover}`} alt="poster" fill={true} /> */}
-                                <a className='rounded-pill btn btn-lg button-watch text-white'>watch
+                                <button className='rounded-pill  button-watch text-white'>watch
                                     <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="play-icon" viewBox="0 0 16 16">
                                         <path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z" />
-                                    </svg></a>
+                                    </svg></button>
                             </div>
                         </div>
                     ))}

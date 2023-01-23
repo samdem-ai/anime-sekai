@@ -1,0 +1,32 @@
+.footer {
+  margin-top: 5rem;
+  padding: 5rem 5rem 2rem 5rem;
+  background-color: #171e31;
+  color: white;
+}
+
+.footer a {
+  text-decoration: none;
+  color: #a3de83;
+  transition: color 0.2s;
+}
+
+ul {
+  list-style: none;
+}
+
+.footer-social,
+.menu {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.footer a:hover {
+  color: #cccccc;
+}
+
+/* .logo-animate:hover {
+  color: wheat;
+} */

@@ -1,5 +1,5 @@
 .slider {
-  padding-top: 7rem;
+  padding-top: 4rem;
   width: 100%;
   grid-row: 1;
   background-size: cover;
@@ -7,7 +7,7 @@
   scroll-snap-align: center;
   height: 300px;
   border-radius: 20px;
-  box-shadow: inset 0 0 13em 3em black;
+  box-shadow: inset 10rem 10rem 10rem 8rem rgba(0, 0, 0, 0.5);
 }
 
 .slider-container {
@@ -28,13 +28,22 @@
   font-weight: 700;
 }
 
+.title-container {
+  min-height: 100px;
+  display: flex;
+  align-items: flex-end;
+}
+
 .button-watch {
   /* margin-left: 10rem; Desktop */
   font-weight: 600 !important;
   position: absolute;
-  top: 75%;
+  top: 65%;
   background: rgb(99, 102, 241);
   box-shadow: 0px 4px 5px rgba(199, 210, 254, 0.7);
+  border: none;
+  padding: 0.5rem 1.5rem;
+  transition: all 200ms;
 }
 
 .play-icon {
@@ -44,5 +53,5 @@
 
 .button-watch:hover {
   scale: 1.1;
-  background: rgb(81, 83, 202);
+  background: rgb(89, 91, 218);
 }

@@ -301,11 +301,6 @@ balanced-match@^1.0.0:
   resolved "https://registry.npmjs.org/balanced-match/-/balanced-match-1.0.2.tgz"
   integrity sha512-3oSeUO0TMV67hN1AmbXsK4yaqU7tjiHlbxRDZOpH0KW9+CeX4bRAaX0Anxt0tx2MrpRpWwQaPwIlISEJhYU5Pw==
 
-bootstrap-icons@^1.10.3:
-  version "1.10.3"
-  resolved "https://registry.npmjs.org/bootstrap-icons/-/bootstrap-icons-1.10.3.tgz"
-  integrity sha512-7Qvj0j0idEm/DdX9Q0CpxAnJYqBCFCiUI6qzSPYfERMcokVuV9Mdm/AJiVZI8+Gawe4h/l6zFcOzvV7oXCZArw==
-
 bootstrap@^5.2.3:
   version "5.2.3"
   resolved "https://registry.npmjs.org/bootstrap/-/bootstrap-5.2.3.tgz"

@@ -2,6 +2,7 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import './globals.css'
 import { useEffect } from 'react';
+import Footer from "../components/Footer";
 
 
 export default function RootLayout({ children }) {
@@ -16,6 +17,7 @@ export default function RootLayout({ children }) {
       */}
       <head />
       <body>{children}</body>
+      <Footer></Footer>
     </html>
   )
 }
