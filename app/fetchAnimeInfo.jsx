@@ -30,4 +30,4 @@ async function fetchOngoingAnime(animeName) {
     return await res
 }
 
-export default fetchAnimeInfo
+export { fetchAnimeInfo, fetchOngoingAnime }

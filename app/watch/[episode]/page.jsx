@@ -4,7 +4,7 @@ import { usePathname } from 'next/navigation';
 import Plyr from "plyr-react";
 import "plyr-react/plyr.css";
 import './animeEpisode.css'
-import fetchAnimeInfo from "../../fetchAnimeInfo";
+import { fetchAnimeInfo, fetchOngoingAnime } from "../../fetchAnimeInfo";
 
 
 
@@ -30,56 +30,41 @@ export default function Home() {
                 }).catch((e) => {
                     // console.log(e);
                 });
+
             setAnime(await result)
+
+
             const animeInfo = await fetchAnimeInfo(animeSlug)
             setAnimeInfo(animeInfo)
+
             if (!allEpisodes && animeInfo && animeInfo.status === 'ongoing') {
-                const result = fetch(`https://api-consumet.vercel.app/anime/gogoanime/info/${animeSlug}`)
-                    .then((response) => {
-                        if (response.ok) {
-                            return response.json()
-                        }
-                        throw new Error('something went wrong')
-                    }).then((data) => {
-                        // console.log(data)
-                        return data
-                    }).catch((e) => {
-                        // console.log(e);
-                    });
-                const episodesInfo = await result
+
+                const episodesInfo = await fetchOngoingAnime(animeSlug)
                 setTotalEpisodes(episodesInfo)
-                totalEpisodes && setAllEpisodes(Array.from({ length: await totalEpisodes.totalEpisodes }, (v, k) => k + 1))
-                console.log(allEpisodes)
+                totalEpisodes && setAllEpisodes(
+                    Array
+                        .from(
+                            { length: await totalEpisodes.totalEpisodes },
+                            (v, k) => k + 1
+                        ))
+
             } else if (!allEpisodes) {
-                setAllEpisodes(Array.from({ length: animeInfo.total_episodes }, (v, k) => k + 1))
+
+                setAllEpisodes(
+                    Array
+                        .from({ length: animeInfo.total_episodes },
+                            (v, k) => k + 1
+                        ))
             }
 
         }
+
+
         fetchEpisode()
-        // async function fetchAllEpisodes() {
-        //     const result = fetch(`http://localhost:3000/api/anime/episodes/${animeSlug}`)
-        //         .then((response) => {
-        //             if (response.ok) {
-        //                 return response.json()
-        //             }
-        //             throw new Error('something went wrong')
-        //         }).then((data) => {
-        //             return data
-        //         }).catch((e) => {
-        //             // console.log(e);
-        //         });
-        //     setAllEpisodes(...allEpisodes, await result)
-        // }
-        // fetchAllEpisodes()
 
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [totalEpisodes])
 
-
-
-    // if (animeInfo && animeInfo.status === 'ongoing') {
-
-    // }
 
     return (
         <main className='page episode-page'>
@@ -121,10 +106,6 @@ export default function Home() {
                         ))}
                     </div>
                 }
-                {
-                    allEpisodes && console.log(allEpisodes)
-                }
-
             </div>
         </main>
     )
