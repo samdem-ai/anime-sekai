@@ -25,7 +25,7 @@ export default async function NewestRelease() {
             <h2 className="newest-release__title">Latest Episodes</h2>
             <div className="newest-release__container">
                 {result.map((anime) => (
-                    <a href="#" key={anime.id} className="anime__card" style={{ backgroundImage: `url(${anime.poster})` }}>
+                    <a href={`/watch/${anime.slug}`} key={anime.id} className="anime__card" style={{ backgroundImage: `url(${anime.poster})` }}>
                         <p className="anime__title">{anime.title}</p>
                     </a>
                 ))}

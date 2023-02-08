@@ -1,5 +1,5 @@
 function pad(num, size) {
-    var s = "000000000" + num;
+    var s = "00000000000" + num;
     return s.substr(s.length - size);
 }
 
@@ -26,21 +26,27 @@ export default async function handler(req, res) {
     const { episode } = req.query;
     const searchResult = await fetchEpisode(episode);
     if (searchResult) {
-
-        let title = searchResult.data.title.replace('(', 'openingPar').replace(')', 'closingPar').replace(/[\W_]+/g, " ");
-        const epTitleNumber =
-            "-_EP" + pad(title.split(" ")[title.split(" ").length - 2], 2);
+        let title = searchResult.data.title.replaceAll('(', 'openingPar').replaceAll(')', 'closingPar').replaceAll(',', 'uneVirgule').replaceAll('♀', 'uneWoman').replaceAll(':', '').replaceAll('.', 'dotPoint').replaceAll(/[\W_]+/g, " ");
+        let epTitleNumber
+        if (title.split(" ")[title.split(" ").length - 2].length === 1) {
+            epTitleNumber =
+                "-_EP" + pad(title.split(" ")[title.split(" ").length - 2], 2);
+        } else {
+            epTitleNumber =
+                "-_EP" + title.split(" ")[title.split(" ").length - 2];
+        }
         title = title.split(" ");
         title.pop();
         title[title.length - 1] = epTitleNumber;
-        title = title.join("_").replace('openingPar', '(').replace('closingPar', ')');
+        title = title.join("_").replaceAll('openingPar', '(').replaceAll('dotPoint', '.').replaceAll('closingPar', ')').replaceAll('uneWoman', '♀').replaceAll('uneVirgule', '%2C');
         const videoId = searchResult.data.video_id;
         const epLinks = {
-            title: searchResult.data.title,
-            thumbnail: searchResult.data.poster_path,
+            title: `${searchResult.data.title}`,
+            thumbnail: `https://api.animeiat.co/storage/${searchResult.data.poster_path}`,
             "480p": `https://cdn.animeiat.tv/files/${videoId}/%5BAnimeiat.co%5D${title}%5B480p%5D.mp4`,
             "720p": `https://cdn.animeiat.tv/files/${videoId}/%5BAnimeiat.co%5D${title}%5B720p%5D.mp4`,
             "1080p": `https://cdn.animeiat.tv/files/${videoId}/%5BAnimeiat.co%5D${title}%5B1080p%5D.mp4`,
+            "backup": `https://api.animeiat.co/storage/videos/[Animeiat.co]${title.replaceAll('_', ' ')}.mp4`
         };
         res.status(200).json(epLinks)
     } else {
