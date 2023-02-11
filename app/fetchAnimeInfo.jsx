@@ -1,3 +1,4 @@
+import { createWriteStream } from 'streamsaver'
 
 async function fetchAnimeInfo(animeName) {
     const result = fetch(`https://anime-sekai-api.vercel.app/api/anime/info/${animeName}`)
@@ -48,23 +49,23 @@ async function fetchOngoingAnime(animeName) {
 // }
 
 async function downloadImage(url, fileName) {
-    // return fetch(url).then(res => {
-    //     const fileStream = createWriteStream(`${fileName}.mp4`);
-    //     const writer = fileStream.getWriter();
-    //     if (res.body.pipeTo) {
-    //         writer.releaseLock();
-    //         return res.body.pipeTo(fileStream);
-    //     }
+    return fetch(url).then(res => {
+        const fileStream = createWriteStream(`${fileName}.mp4`);
+        const writer = fileStream.getWriter();
+        if (res.body.pipeTo) {
+            writer.releaseLock();
+            return res.body.pipeTo(fileStream);
+        }
 
-    //     const reader = res.body.getReader();
-    //     const pump = () =>
-    //         reader
-    //             .read()
-    //             .then(({ value, done }) => (done ? writer.close() : writer.write(value).then(pump)));
+        const reader = res.body.getReader();
+        const pump = () =>
+            reader
+                .read()
+                .then(({ value, done }) => (done ? writer.close() : writer.write(value).then(pump)));
 
-    //     return pump();
-    // });
-    console.log(url)
+        return pump();
+    });
+    // console.log(url)
 }
 
 export { fetchAnimeInfo, fetchOngoingAnime, downloadImage }
