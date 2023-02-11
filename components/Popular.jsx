@@ -46,8 +46,8 @@ export default async function Popular() {
     // const l = await fetchAnimeInfo(result)
     if (result) {
         return (
-            <div id="carouselExample popular" class="carousel slide mt-5" data-bs-ride="carousel">
-                <div class="carousel-inner">
+            <div id="carouselExample popular" className="carousel slide mt-5" data-bs-ride="carousel">
+                <div className="carousel-inner">
                     {result.map((anime) => (
                         <div key={anime.id} className={result.indexOf(anime) == 0 ? "slider carousel-item active" : "slider carousel-item"} style={{ backgroundImage: `url(${anime.cover})` }}>
                             <div className="slider-container">
@@ -56,20 +56,20 @@ export default async function Popular() {
                                 </div>
                                 {/* <Image className='slider__image' src={`${anime.cover}`} alt="poster" fill={true} /> */}
                                 <button className='rounded-pill  button-watch text-white'>watch
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="play-icon" viewBox="0 0 16 16">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" className="play-icon" viewBox="0 0 16 16">
                                         <path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z" />
                                     </svg></button>
                             </div>
                         </div>
                     ))}
                 </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
+                <button className="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                    <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span className="visually-hidden">Previous</span>
                 </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
+                <button className="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                    <span className="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span className="visually-hidden">Next</span>
                 </button>
             </div>
         )

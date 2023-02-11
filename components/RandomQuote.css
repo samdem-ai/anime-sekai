@@ -28,6 +28,7 @@
 
 .anime__image {
   width: 60%;
+  height: auto;
 }
 
 .anime__character {

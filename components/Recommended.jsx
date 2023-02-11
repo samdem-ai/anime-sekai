@@ -17,14 +17,14 @@ async function fetchRecommended() {
 
 
 const Recommended = async () => {
-    const result = await fetchRecommended()
+    const RecommendedAnime = await fetchRecommended()
 
     return (
         <div className="recommended">
             <h2 className="recommended__title">Recommended</h2>
             <div className="recommended__container">
-                {result.map((anime) => (
-                    <a href="#" key={anime.anime_name} style={{ backgroundImage: `url(${anime.poster_path})` }} className="anime__card">
+                {RecommendedAnime.map((anime) => (
+                    <a href={`/watch/${anime.slug}-episode-1`} key={anime.anime_name} style={{ backgroundImage: `url(${anime.poster_path})` }} className="anime__card">
                         {/* <div className="anime__status">{anime.status}</div> */}
                         <div className="anime__type">{anime.type}</div>
                         <p className="anime__title">{anime.anime_name}</p>

@@ -43,6 +43,7 @@ export default async function handler(req, res) {
         const epLinks = {
             title: `${searchResult.data.title}`,
             thumbnail: `https://api.animeiat.co/storage/${searchResult.data.poster_path}`,
+            // "360p": `https://cdn.animeiat.tv/files/${videoId}/%5BAnimeiat.co%5D${title}%5B360p%5D.mp4`,
             "480p": `https://cdn.animeiat.tv/files/${videoId}/%5BAnimeiat.co%5D${title}%5B480p%5D.mp4`,
             "720p": `https://cdn.animeiat.tv/files/${videoId}/%5BAnimeiat.co%5D${title}%5B720p%5D.mp4`,
             "1080p": `https://cdn.animeiat.tv/files/${videoId}/%5BAnimeiat.co%5D${title}%5B1080p%5D.mp4`,

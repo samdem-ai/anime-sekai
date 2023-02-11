@@ -10,7 +10,7 @@ export default function RootLayout({ children }) {
     require("bootstrap/dist/js/bootstrap.bundle.min.js");
   }, []);
   return (
-    <html lang="en">
+    <html lang="ar">
       {/*
         <head /> will contain the components returned by the nearest parent
         head.jsx. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head
