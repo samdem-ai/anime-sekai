@@ -2,7 +2,7 @@ import './Popular.css'
 
 
 async function fetchPopularAnime() {
-    const result = fetch('https://corsanywhere.herokuapp.com/https://anime-sekai-api.vercel.app/api/anime/popular')
+    const result = fetch('https://anime-sekai-api.vercel.app/api/anime/popular')
         .then((response) => {
             if (response.ok) {
                 return response.json()
