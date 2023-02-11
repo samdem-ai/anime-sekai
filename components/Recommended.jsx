@@ -1,6 +1,6 @@
 import './Recommended.css'
 async function fetchRecommended() {
-    const result = fetch('http://anime-sekai-api.vercel.app/api/anime/recommended')
+    const result = fetch('https://anime-sekai-api.vercel.app/api/anime/recommended')
         .then((response) => {
             if (response.ok) {
                 return response.json()
