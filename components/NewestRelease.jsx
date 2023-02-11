@@ -3,7 +3,7 @@ import "./NewestRelease.css"
 
 
 async function fetchNewestRelease() {
-    const result = fetch('https://anime-sekai-api.vercel.app/api/anime/new-release')
+    const result = fetch('https://corsanywhere.herokuapp.com/https://anime-sekai-api.vercel.app/api/anime/new-release')
         .then((response) => {
             if (response.ok) {
                 return response.json()

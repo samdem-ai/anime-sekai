@@ -18,7 +18,7 @@ export default function Home() {
 
     useEffect(() => {
         async function fetchEpisode() {
-            const result = fetch(`https://anime-sekai-api.vercel.app/api/anime/watch/${currentPath}`)
+            const result = fetch(`https://corsanywhere.herokuapp.com/https://anime-sekai-api.vercel.app/api/anime/watch/${currentPath}`)
                 .then((response) => {
                     if (response.ok) {
                         return response.json()
