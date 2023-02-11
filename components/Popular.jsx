@@ -2,7 +2,7 @@ import './Popular.css'
 
 
 async function fetchPopularAnime() {
-    const result = fetch('http://localhost:3000/api/anime/popular')
+    const result = fetch('http://anime-sekai-api.vercel.app/api/anime/popular')
         .then((response) => {
             if (response.ok) {
                 return response.json()
@@ -19,7 +19,7 @@ async function fetchPopularAnime() {
 // async function fetchAnimeInfo(popular) {
 //     let response = []
 //     for (const elm of popular) {
-//         const result = await fetch(`http://localhost:3000/api/anime/info/${elm.slug}`)
+//         const result = await fetch(`http://anime-sekai-api.vercel.app/api/anime/info/${elm.slug}`)
 //             .then((response) => {
 //                 if (response.ok) {
 //                     return response.json()

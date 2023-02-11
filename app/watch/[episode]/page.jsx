@@ -36,7 +36,7 @@ export default function Home() {
 
     useEffect(() => {
         async function fetchEpisode() {
-            const result = fetch(`http://localhost:3000/api/anime/watch/${currentPath}`)
+            const result = fetch(`http://anime-sekai-api.vercel.app/api/anime/watch/${currentPath}`)
                 .then((response) => {
                     if (response.ok) {
                         return response.json()

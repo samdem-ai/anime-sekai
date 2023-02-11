@@ -1,7 +1,7 @@
 import { createWriteStream } from 'streamsaver';
 
 async function fetchAnimeInfo(animeName) {
-    const result = fetch(`http://localhost:3000/api/anime/info/${animeName}`)
+    const result = fetch(`http://anime-sekai-api.vercel.app/api/anime/info/${animeName}`)
         .then((response) => {
             if (response.ok) {
                 return response.json()
