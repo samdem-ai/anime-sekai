@@ -2,7 +2,7 @@ import './RandomQuote.css'
 import Image from 'next/image';
 
 async function fetchRandomQuote() {
-    const result = fetch('https://kyoko.rei.my.id/api/quotes.php')
+    const result = fetch('https://kyoko.rei.my.id/api/quotes.php', { next: { revalidate: 60 } })
         .then((response) => {
             if (response.ok) {
                 return response.json()

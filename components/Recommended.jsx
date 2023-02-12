@@ -1,6 +1,6 @@
 import './Recommended.css'
 async function fetchRecommended() {
-    const result = fetch('https://anime-sekai-api.vercel.app/api/anime/recommended')
+    const result = fetch('https://anime-sekai-api.vercel.app/api/anime/recommended', { next: { revalidate: 3600 * 12 } })
         .then((response) => {
             if (response.ok) {
                 return response.json()

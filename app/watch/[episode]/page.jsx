@@ -18,7 +18,8 @@ export default function Home() {
 
     useEffect(() => {
         async function fetchEpisode() {
-            const result = fetch(`https://corsanywhere.herokuapp.com/https://anime-sekai-api.vercel.app/api/anime/watch/${currentPath}`)
+            const result = fetch(
+                `https://corsanywhere.herokuapp.com/https://anime-sekai-api.vercel.app/api/anime/watch/${currentPath}`)
                 .then((response) => {
                     if (response.ok) {
                         return response.json()
@@ -102,6 +103,10 @@ export default function Home() {
                         ]
                     }} />
                     <button onClick={() => downloadImage(anime['480p'], anime.title + ' 480p').then(() => { alert('done'); })
+                    } className="btn btn-primary me-2">Download Image</button>
+                    <button onClick={() => downloadImage(anime['720p'], anime.title + ' 720p').then(() => { alert('done'); })
+                    } className="btn btn-primary me-2">Download Image</button>
+                    <button onClick={() => downloadImage(anime['1080p'], anime.title + ' 1080p').then(() => { alert('done'); })
                     } className="btn btn-primary">Download Image</button>
 
                 </div>}

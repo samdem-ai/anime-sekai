@@ -1,9 +1,8 @@
-import { imageConfigDefault } from "next/dist/shared/lib/image-config";
 import "./NewestRelease.css"
 
 
 async function fetchNewestRelease() {
-    const result = fetch('https://anime-sekai-api.vercel.app/api/anime/new-release')
+    const result = fetch('https://anime-sekai-api.vercel.app/api/anime/new-release', { next: { revalidate: 3600 } })
         .then((response) => {
             if (response.ok) {
                 return response.json()
