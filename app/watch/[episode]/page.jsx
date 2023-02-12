@@ -75,39 +75,45 @@ export default function Home() {
                     <Plyr source={{
                         type: "video",
                         sources: [
-                            // {
-                            //     src: anime['360p'],
-                            //     poster: anime.thumbnail,
-                            //     size: 360,
+                            anime['360p'] !== '' ? {
+                                src: anime['360p'],
+                                poster: anime.thumbnail,
+                                size: 360,
 
-                            // },
-                            {
+                            } : {},
+                            anime['720p'] !== '' ? {
                                 src: anime['720p'],
                                 poster: anime.thumbnail,
                                 size: 720,
 
-                            },
-                            {
+                            } : {},
+                            anime['480p'] !== '' ? {
                                 src: anime['480p'],
                                 poster: anime.thumbnail,
                                 size: 480,
 
-                            },
-                            {
+                            } : {},
+                            anime['1080p'] !== '' ? {
                                 src: anime['1080p'],
                                 poster: anime.thumbnail,
                                 size: 1080,
 
-                            },
+                            } : {},
 
                         ]
                     }} />
-                    <button onClick={() => downloadImage(anime['480p'], anime.title + ' 480p').then(() => { alert('done'); })
-                    } className="btn btn-primary me-2">Download Image</button>
-                    <button onClick={() => downloadImage(anime['720p'], anime.title + ' 720p').then(() => { alert('done'); })
-                    } className="btn btn-primary me-2">Download Image</button>
-                    <button onClick={() => downloadImage(anime['1080p'], anime.title + ' 1080p').then(() => { alert('done'); })
-                    } className="btn btn-primary">Download Image</button>
+
+                    <button onClick={() => downloadImage(anime['480p'], anime.title + ' 480p')
+                        .then(() => { alert('done'); })
+                    } className="btn btn-primary me-2">Download (480p)</button>
+
+                    <button onClick={() => downloadImage(anime['720p'], anime.title + ' 720p')
+                        .then(() => { alert('done'); })
+                    } className="btn btn-primary me-2">Download (720p)</button>
+
+                    <button onClick={() => downloadImage(anime['1080p'], anime.title + ' 1080p')
+                        .then(() => { alert('done'); })
+                    } className="btn btn-primary">Download (1080)</button>
 
                 </div>}
                 {
