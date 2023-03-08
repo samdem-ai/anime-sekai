@@ -4,8 +4,7 @@ import { usePathname } from 'next/navigation';
 import Plyr from "plyr-react";
 import "plyr-react/plyr.css";
 import './animeEpisode.css'
-import { fetchAnimeInfo, fetchOngoingAnime, downloadImage } from "../../fetchAnimeInfo";
-
+import { fetchAnimeInfo, fetchOngoingAnime } from "../../fetchAnimeInfo";
 
 export default function Home() {
     const [anime, setAnime] = useState()
@@ -15,6 +14,30 @@ export default function Home() {
     const currentPath = usePathname().substring(7)
     const animeSlug = currentPath.substring(0, currentPath.indexOf('-episode'))
     const animeEpisode = currentPath.substring(currentPath.lastIndexOf('-') + 1, currentPath.length)
+
+    const [progress, setProgress] = useState(0);
+
+    const downloadVideo = async () => {
+        NProgress.start();
+        const response = await fetch('https://corsanywhere.herokuapp.com/https://cdn.animeiat.tv/files/35278/%5BAnimeiat.co%5DBlue_Lock_-_EP02%5B360p%5D.mp4');
+        const total = parseInt(response.headers.get('Content-Length'), 10);
+        console.log(total)
+        const reader = response.body.getReader();
+        let loaded = 0;
+
+        while (true) {
+            const { done, value } = await reader.read();
+            if (done) {
+                break;
+            }
+            loaded += value.length;
+            setProgress((loaded / total) * 100);
+        }
+
+        NProgress.done();
+        // Save the video to the local file system
+    };
+
 
     useEffect(() => {
         async function fetchEpisode() {
@@ -102,18 +125,6 @@ export default function Home() {
 
                         ]
                     }} />
-
-                    <button onClick={() => downloadImage(anime['480p'], anime.title + ' 480p')
-                        .then(() => { alert('done'); })
-                    } className="btn btn-primary me-2">Download (480p)</button>
-
-                    <button onClick={() => downloadImage(anime['720p'], anime.title + ' 720p')
-                        .then(() => { alert('done'); })
-                    } className="btn btn-primary me-2">Download (720p)</button>
-
-                    <button onClick={() => downloadImage(anime['1080p'], anime.title + ' 1080p')
-                        .then(() => { alert('done'); })
-                    } className="btn btn-primary">Download (1080)</button>
 
                 </div>}
                 {
