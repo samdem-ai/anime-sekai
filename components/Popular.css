@@ -36,6 +36,7 @@
 
 .button-watch {
   /* margin-left: 10rem; Desktop */
+  text-decoration: none;
   font-weight: 600 !important;
   position: absolute;
   top: 65%;
@@ -54,4 +55,10 @@
 .button-watch:hover {
   scale: 1.1;
   background: rgb(89, 91, 218);
+}
+
+@media (width>1100px) {
+  .slider-container {
+    margin-left: 13rem;
+  }
 }

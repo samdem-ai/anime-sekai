@@ -55,10 +55,10 @@ export default async function Popular() {
                                     <h1 className='slider__title'>{anime.title}</h1>
                                 </div>
                                 {/* <Image className='slider__image' src={`${anime.cover}`} alt="poster" fill={true} /> */}
-                                <button className='rounded-pill  button-watch text-white'>watch
+                                <a href={`#`} className='rounded-pill  button-watch text-white'>watch
                                     <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" className="play-icon" viewBox="0 0 16 16">
                                         <path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z" />
-                                    </svg></button>
+                                    </svg></a>
                             </div>
                         </div>
                     ))}
