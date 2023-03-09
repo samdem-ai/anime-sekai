@@ -1,6 +1,8 @@
-<h1 align="center">anime Sekai api</h1>
+<h1 align="center">anime Sekai</h1>
 
-<p align="center">this is an api used for my anime website project called anime Sekai</p>
+<p align="center">this is my anime website project called anime Sekai</p>
+<p align="center">i made it because i was so sick from those anime websites that have an infinite amount of ads</p>
+
 
 ## Links
 
@@ -8,7 +10,7 @@
 
 - [Live](<https://anime-sekai-five.vercel.app/> "Live View")
 
-- [Bugs](https://github.com/samdem-ai/anime-sekai-api/issues "the api issues Page")
+- [Bugs](https://github.com/samdem-ai/anime-sekai/issues "the api issues Page")
 
 - [API](https://api-consumet.vercel.app/ "another API i use")
 
