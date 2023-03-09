@@ -1,0 +1,75 @@
+.anime__card {
+  position: relative;
+  /* height: 25vh; */
+  min-height: clamp(20rem, 25vh, 26rem);
+  background-size: cover;
+  background-position: center center;
+  border-radius: 24px;
+  display: flex;
+  align-items: flex-end;
+  text-decoration: none;
+}
+
+.search__container {
+  padding: 0 0.6rem;
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(5, 1fr);
+  margin-top: 2rem;
+}
+
+.anime__title {
+  width: 100%;
+  border-radius: 0 0 24px 24px;
+  padding: 0.3rem 0.5rem 0.5rem 0.5rem;
+  overflow: hidden;
+  max-height: 100px;
+  white-space: normal;
+  text-overflow: ellipsis;
+  margin: 0;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.pagination {
+  /* margin-top: 1rem; */
+  display: flex;
+  justify-content: center;
+}
+
+.state-container,
+.loading-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 10vh;
+}
+
+.loading-section {
+  /* margin-top: 5rem; */
+  flex-direction: column;
+}
+
+@media (width<1200px) {
+  .search__container {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (width<850px) {
+  .search__container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (width<620px) {
+  .search__container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (width<500px) {
+  .anime__card {
+    min-height: 30vh;
+  }
+}

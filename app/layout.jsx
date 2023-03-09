@@ -3,6 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import './globals.css'
 import { useEffect } from 'react';
 import Footer from "../components/Footer";
+import SearchBar from "../components/SearchBar";
 
 
 export default function RootLayout({ children }) {
@@ -17,9 +18,25 @@ export default function RootLayout({ children }) {
       */}
 
       <head />
-      <body>{children}</body>
-      {/* <Footer></Footer> */}
+      <body >
+        <div className="grid-nav">
+          <div className="logo-container">
+            <p className="hehe">hehe</p>
+            <a href="/" className="logo-link">
+              <img src="/assets/logo.svg" alt="logo" className="logo-main" />
+              <span>Anime Sekai</span>
+            </a>
+          </div>
+          <div>
+            <div className="page">
+              <SearchBar className="search-bar page-layout"></SearchBar>
+            </div>
+            {children}
+          </div>
+        </div>
+      </body>
+      <Footer></Footer>
 
-    </html>
+    </html >
   )
 }

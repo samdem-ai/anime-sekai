@@ -11,10 +11,17 @@ const SearchBar = () => {
     }
     return (
         <>
-            <img src="/assets/Search.svg" alt="search icon" className="search-icon" />
-            <input type="text" className="search-bar" name="animeSearch" id="animeSearch"
-                placeholder="Search for an animes or movies" onChange={handleChange} />
-            <a className="search-button" href={search}>Search</a>
+
+            <form className="search-form" onSubmit={(e) => {
+                e.preventDefault();
+                // setSearch(e.target.value);
+                window.location.href = `/${search}`
+            }}>
+                <img src="/assets/Search.svg" alt="search icon" className="search-icon" />
+                <input type="text" className="search-bar" name="animeSearch" id="animeSearch"
+                    placeholder="Search for animes or movies" onChange={handleChange} o />
+                <a className="search-button" href={`/${search}`}>Search</a>
+            </form>
         </>
 
     );

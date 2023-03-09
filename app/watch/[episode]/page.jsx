@@ -5,6 +5,7 @@ import Plyr from "plyr-react";
 import "plyr-react/plyr.css";
 import './animeEpisode.css'
 import { fetchAnimeInfo, fetchOngoingAnime } from "../../fetchAnimeInfo";
+import SearchBar from "../../../components/SearchBar";
 
 export default function Home() {
     const [anime, setAnime] = useState()
@@ -15,28 +16,28 @@ export default function Home() {
     const animeSlug = currentPath.substring(0, currentPath.indexOf('-episode'))
     const animeEpisode = currentPath.substring(currentPath.lastIndexOf('-') + 1, currentPath.length)
 
-    const [progress, setProgress] = useState(0);
+    // const [progress, setProgress] = useState(0);
 
-    const downloadVideo = async () => {
-        NProgress.start();
-        const response = await fetch('https://corsanywhere.herokuapp.com/https://cdn.animeiat.tv/files/35278/%5BAnimeiat.co%5DBlue_Lock_-_EP02%5B360p%5D.mp4');
-        const total = parseInt(response.headers.get('Content-Length'), 10);
-        console.log(total)
-        const reader = response.body.getReader();
-        let loaded = 0;
+    // const downloadVideo = async () => {
+    //     NProgress.start();
+    //     const response = await fetch('https://corsanywhere.herokuapp.com/https://cdn.animeiat.tv/files/35278/%5BAnimeiat.co%5DBlue_Lock_-_EP02%5B360p%5D.mp4');
+    //     const total = parseInt(response.headers.get('Content-Length'), 10);
+    //     console.log(total)
+    //     const reader = response.body.getReader();
+    //     let loaded = 0;
 
-        while (true) {
-            const { done, value } = await reader.read();
-            if (done) {
-                break;
-            }
-            loaded += value.length;
-            setProgress((loaded / total) * 100);
-        }
+    //     while (true) {
+    //         const { done, value } = await reader.read();
+    //         if (done) {
+    //             break;
+    //         }
+    //         loaded += value.length;
+    //         setProgress((loaded / total) * 100);
+    //     }
 
-        NProgress.done();
-        // Save the video to the local file system
-    };
+    //     NProgress.done();
+    //     // Save the video to the local file system
+    // };
 
 
     useEffect(() => {
@@ -58,7 +59,7 @@ export default function Home() {
 
 
             const animeInfo = await fetchAnimeInfo(animeSlug)
-            setAnimeInfo(animeInfo)
+            setAnimeInfo(await animeInfo)
 
             if (!allEpisodes && animeInfo && animeInfo.status === 'ongoing') {
 
@@ -82,10 +83,7 @@ export default function Home() {
             }
 
         }
-
-
         fetchEpisode()
-
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [totalEpisodes])
 
@@ -166,7 +164,7 @@ export default function Home() {
                             <div className="anime-info__col">
                                 <p className="anime-info__more">year: {animeInfo.year.name}</p>
                                 <p className="anime-info__more">Episodes: {animeInfo.total_episodes ? animeInfo.total_episodes : '?'}</p>
-                                <p className="anime-info__more">Studio: {animeInfo.studios[0].name}</p>
+                                <p className="anime-info__more">Studio: {animeInfo.studios.length != 0 ? animeInfo.studios[0].name : ''}</p>
                             </div>
                         </div>
                     </div>

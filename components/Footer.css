@@ -30,3 +30,11 @@ ul {
 /* .logo-animate:hover {
   color: wheat;
 } */
+.logo a {
+  white-space: nowrap;
+}
+
+.footer-heading {
+  margin-left: auto;
+  margin-right: auto;
+}

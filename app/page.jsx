@@ -10,7 +10,6 @@ export default async function Home() {
   return (
     <>
       <main className='page'>
-        <SearchBar></SearchBar>
         <Popular></Popular>
         <div className="grid-layout">
           <NewestRelease></NewestRelease>
@@ -19,7 +18,6 @@ export default async function Home() {
         </div>
 
       </main>
-      <Footer></Footer>
     </>
   )
 
